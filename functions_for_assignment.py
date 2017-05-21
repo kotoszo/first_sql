@@ -6,23 +6,27 @@ from time import sleep
 
 def username():
     dbname = input("Username: ")
+    if dbname == "quit":
+        quit()
     return dbname
 
 
 def password():
     password = input("Password: ")
+    if password == "quit":
+        quit()
     return password
 
 
-def login_validator(username, password):
+def login_validator(username, password, logged_in):
     """Conects to my database. Yes my friend, i have a database."""
     connect_str = "dbname='richter' user='{username}' host='localhost' password='{password}'".format(
         username=username, password=password)
     try:
         return psycopg2.connect(connect_str)
     except:
-        print("Uh oh, wrong username or password!")
-        assignment.main()
+        print("Wrong")
+        return False
 
 
 # All the sql functions returns tuples.
