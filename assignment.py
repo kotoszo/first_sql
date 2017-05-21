@@ -93,9 +93,17 @@ def search_helper_2(d_b, usr_input):
 def main_menu_stage_four():
     """New applicant stage"""
     first_name = input("First name pls: ")
+    if first_name == "7":
+        main()
     last_name = input("Last name pls: ")
+    if last_name == "7":
+        main()
     phone_number = input("Phone number pls: ")
+    if phone_number == "7":
+        main()
     email = input("Email pls: ")
+    if email == "7":
+        main()
     functions.new_applicant_validator(first_name, last_name, phone_number, email)
     functions.new_applicanto(first_name, last_name, phone_number, email)
     result = functions.details_details_everywhere("applicants", email, "email")
@@ -211,11 +219,15 @@ def lists(main_menu):
     return info_list
 
 
+def login():
+    logged_in = False
+    while not logged_in:
+        username = functions.username()
+        password = functions.password()
+        logged_in = functions.login_validator(username, password, logged_in)
+
+
 def main():
-    username = functions.username()
-    password = functions.password()
-    functions.login_validator(username, password)
-    print("\nWelcome {username}. Have a nice day!\n".format(username=username))
     OPTIONS = ["Let's see all the full names", "Mentors from one city", "Search",
                "New applicant", "Update", "Remove"]
     end = False
@@ -225,6 +237,7 @@ def main():
 
 
 if __name__ == '__main__':
+    login()
     main()
 
 
