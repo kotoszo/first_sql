@@ -34,7 +34,7 @@ def login_validator(username, password, logged_in):
 def connect_to_DB():
     """Conects to my database. Yes my friend, i have a database."""
     # setup connection string
-    connect_str = "dbname='richter' user='richter' host='localhost' password='richter123ads'"
+    connect_str = "dbname='' user='richter' host='localhost' password=''"
     # print(connect_str)
     try:
         return psycopg2.connect(connect_str)
